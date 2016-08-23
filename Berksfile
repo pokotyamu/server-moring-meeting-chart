@@ -1,5 +1,5 @@
-source "https://api.berkshelf.com"
+site :opscode
 
 cookbook 'git'
-cookbook 'yum-epel'
+cookbook "yum-epel"
 cookbook 'nginx', path: "./site-cookbooks/nginx"
