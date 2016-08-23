@@ -70,4 +70,13 @@ Vagrant.configure(2) do |config|
   # SHELL
 
   config.ssh.forward_agent = true
+
+  # vagrant-omnibus の有効化
+  config.omnibus.chef_version = :latest
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
+
+    chef.add_recipe 'nginx'
+  end
 end
